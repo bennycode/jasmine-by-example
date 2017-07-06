@@ -1,8 +1,8 @@
-const MyClass = require('./src/main/MyClass');
+const MyRequest= require('./src/main/MyRequest');
 
 const baseURL = 'http://localhost:8080';
-const instance = new MyClass(baseURL);
-instance.getSomething()
+const request = new MyRequest(baseURL);
+request.getResource()
   .then((response) => {
     console.log('Response', response.data);
   })

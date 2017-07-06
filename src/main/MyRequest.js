@@ -1,11 +1,11 @@
 const axios = require('axios');
 
-module.exports = class MyClass {
+module.exports = class MyRequest {
   constructor(baseURL) {
     this.baseURL = baseURL;
   }
 
-  getSomething() {
+  getResource() {
     const config = {
       method: 'get',
       url: `${this.baseURL}/resource`
