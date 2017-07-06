@@ -1,10 +1,16 @@
-'use strict';
+const axios = require('axios');
 
 module.exports = class MyClass {
-  constructor() {
+  constructor(baseURL) {
+    this.baseURL = baseURL;
   }
 
   getSomething() {
-    return Promise.resolve({value: 'something'});
+    const config = {
+      method: 'get',
+      url: `${this.baseURL}/resource`
+    };
+
+    return axios.request(config);
   }
 };

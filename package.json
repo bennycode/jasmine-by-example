@@ -1,14 +1,20 @@
 {
+  "dependencies": {
+    "axios": "0.16.2",
+    "express": "4.15.3"
+  },
   "devDependencies": {
     "jasmine": "2.6.0"
   },
-  "main": "./src/main/MyClass.js",
+  "main": "./index.js",
   "name": "jasmine-by-example",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/bennyn/jasmine-by-example.git"
   },
   "scripts": {
+    "hit": "node hit-server.js",
+    "start": "node index.js",
     "test": "jasmine"
   },
   "version": "1.0.0"
