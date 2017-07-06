@@ -1,0 +1,15 @@
+{
+  "devDependencies": {
+    "jasmine": "2.6.0"
+  },
+  "main": "./src/main/MyClass.js",
+  "name": "jasmine-by-example",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bennyn/jasmine-by-example.git"
+  },
+  "scripts": {
+    "test": "jasmine"
+  },
+  "version": "1.0.0"
+}
