@@ -1,29 +1,27 @@
-const axios = require('axios');
-const sinon = require('sinon');
+const moxios = require('moxios');
 
 const MyRequest = require('../../src/main/MyRequest');
 
 describe('MyRequest', () => {
-  let sandbox;
-  let server;
 
   beforeEach(() => {
-    sandbox = sinon.sandbox.create();
-    server = sandbox.useFakeServer();
+    moxios.install();
   });
 
   afterEach(() => {
-    server.restore();
-    sandbox.restore();
+    moxios.uninstall();
   });
 
   describe('"getResource"', () => {
     it('get\'s something', (done) => {
-      const responseBody = {"value": "don't hit me!"};
-      const response = Promise.resolve({data: responseBody});
-      sandbox.stub(axios, 'request').returns(response);
-
       const baseURL = 'http://localhost:8080';
+
+      const responseBody = {"value": "don't hit me!"};
+      moxios.stubRequest(`${baseURL}/resource`, {
+        status: 200,
+        responseText: responseBody
+      });
+
       const request = new MyRequest(baseURL);
       request.getResource()
         .then((response) => {
