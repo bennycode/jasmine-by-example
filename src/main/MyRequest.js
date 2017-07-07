@@ -6,11 +6,6 @@ module.exports = class MyRequest {
   }
 
   getResource() {
-    const config = {
-      method: 'get',
-      url: `${this.baseURL}/resource`
-    };
-
-    return axios.request(config);
+    return axios.get(`${this.baseURL}/resource`);
   }
 };

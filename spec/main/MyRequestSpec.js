@@ -1,8 +1,28 @@
+const axios = require('axios');
+const sinon = require('sinon');
+
 const MyRequest = require('../../src/main/MyRequest');
 
 describe('MyRequest', () => {
+  let sandbox;
+  let server;
+
+  beforeEach(() => {
+    sandbox = sinon.sandbox.create();
+    server = sandbox.useFakeServer();
+  });
+
+  afterEach(() => {
+    server.restore();
+    sandbox.restore();
+  });
+
   describe('"getResource"', () => {
     it('get\'s something', (done) => {
+      const responseBody = {"value": "don't hit me!"};
+      const response = Promise.resolve({data: responseBody});
+      sandbox.stub(axios, 'get').returns(response);
+
       const baseURL = 'http://localhost:8080';
       const request = new MyRequest(baseURL);
       request.getResource()

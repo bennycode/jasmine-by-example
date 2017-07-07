@@ -4,7 +4,8 @@
     "express": "4.15.3"
   },
   "devDependencies": {
-    "jasmine": "2.6.0"
+    "jasmine": "2.6.0",
+    "sinon": "2.3.6"
   },
   "main": "./index.js",
   "name": "jasmine-by-example",
