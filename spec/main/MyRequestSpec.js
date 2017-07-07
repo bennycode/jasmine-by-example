@@ -16,8 +16,8 @@ describe('MyRequest', () => {
     it('get\'s something', (done) => {
       const baseURL = 'http://localhost:8080';
 
-      const responseBody = {"value": "don't hit me!"};
-      moxios.stubRequest(`${baseURL}/resource`, {
+      const responseBody = {value: 'don\'t hit me!'};
+      moxios.stubRequest(`${baseURL}${MyRequest.URL.RESOURCE}`, {
         status: 200,
         responseText: responseBody
       });
@@ -25,7 +25,7 @@ describe('MyRequest', () => {
       const request = new MyRequest(baseURL);
       request.getResource()
         .then((response) => {
-          expect(response.data.value).toBe('don\'t hit me!');
+          expect(response.data.value).toBe(responseBody.value);
           done();
         });
     })
