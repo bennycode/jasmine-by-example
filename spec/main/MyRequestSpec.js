@@ -21,7 +21,7 @@ describe('MyRequest', () => {
     it('get\'s something', (done) => {
       const responseBody = {"value": "don't hit me!"};
       const response = Promise.resolve({data: responseBody});
-      sandbox.stub(axios, 'get').returns(response);
+      sandbox.stub(axios, 'request').returns(response);
 
       const baseURL = 'http://localhost:8080';
       const request = new MyRequest(baseURL);
